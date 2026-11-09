@@ -1,0 +1,26 @@
+{
+  "name": "firebase-perf",
+  "version": "0.1.0",
+  "description": "Custom performance traces through Firebase Performance Monitoring (native:perf).",
+  "modules": ["perf"],
+  "declarations": "perf.d.ts",
+  "requires": ["firebase-core"],
+  "android": {
+    "sources": "android/src",
+    "dependencies": ["com.google.firebase:firebase-perf"],
+    "module": "dev.soar.plugins.perf.PerfModule"
+  },
+  "ios": {
+    "sources": "ios/Sources",
+    "packages": [
+      {
+        "name": "firebase-ios-sdk",
+        "url": "https://github.com/firebase/firebase-ios-sdk",
+        "from": "11.6.0",
+        "products": ["FirebasePerformance"]
+      }
+    ],
+    "module": "PerfModule"
+  },
+  "desktop": { "stub": "desktop/stub.rs" }
+}
